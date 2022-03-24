@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .models import Product
+
 # Create your views here.
 
 def home(request):
@@ -8,4 +10,10 @@ def home(request):
 
 def inventory(request):
 	searchTerm = request.GET.get('searchProduct')
-	return render(request, 'inventory.html', {'searchTerm': searchTerm})
+	
+	if searchTerm:
+		products = Product.objects.filter(name__icontains=searchTerm)
+	else:
+		products = Product.objects.all()
+
+	return render(request, 'inventory.html', {'searchTerm': searchTerm, 'products': products})

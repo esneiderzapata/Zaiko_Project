@@ -17,16 +17,18 @@
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
     <p>Searching for {{ searchTerm }}</p>
-    <!--<div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for movie in movies %}
-        <div v-for="movie in movies" class="col">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for product in products %}
+        <div v-for="product in products" class="col">
             <div class="card">
-                <img class="card-img-top" src="{{ movie.image.url }}" />
+                <img class="card-img-top" src="{{ product.image.url }}" />
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ movie.title }}</h5>
-                    <p class="card-text">{{ movie.description }}</p>
-                    {% if movie.url %}
-                    <a href="{{ movie.url }}" class="btn btn-primary">
+                    <h5 class="card-title fw-bold">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }} <br>
+                    ${{ product.price }} <br>
+                    En Stock: {{ product.amount }} </p>
+                    {% if product.url %}
+                    <a href="{{ product.url }}" class="btn btn-primary">
                         MovieLink
                     </a>
                     {% endif %}
@@ -36,5 +38,5 @@
         {% endfor %}
     </div>
     <br />
-    <br />-->
+    <br />
 </div>
