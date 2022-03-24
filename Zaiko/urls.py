@@ -17,7 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from Zaiko_App import views as zaikoViews
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', zaikoViews.home)
+    path('', zaikoViews.home),
+    path('urzaiko',zaikoViews.inventory),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
