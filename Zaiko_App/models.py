@@ -8,4 +8,7 @@ class Product(models.Model):
 	image = models.ImageField(upload_to='Zaiko_App/images/')
 	amount = models.IntegerField()
 	price = models.IntegerField()
-	url = models.URLField(blank=True)
+	code = models.CharField(max_length=8)
+
+	def __str__(self):
+		return self.name

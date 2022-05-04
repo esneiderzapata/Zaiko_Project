@@ -23,7 +23,11 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', zaikoViews.home),
-    path('urzaiko',zaikoViews.inventory),
+    path('urzaiko',zaikoViews.inventory, name='inventory'),
+    path('delete',zaikoViews.delete),
+    path('sell',zaikoViews.sell),
+    path('create',zaikoViews.create_product)
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

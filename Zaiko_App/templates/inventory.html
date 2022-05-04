@@ -14,24 +14,35 @@
         </label>
         <input type="text" class="form-control" name="searchProduct" />
       </div>
+      <p>Searching for {{ searchTerm }}</p>
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
-    <p>Searching for {{ searchTerm }}</p>
+
+        <center>
+        <a href='/create' class="btn btn-primary">
+        Agregar
+        </a>
+
+        <a href='/delete' class="btn btn-primary">
+        Eliminar
+        </a>
+
+        <a href='/sell' class="btn btn-primary">
+        Vender
+        </a>
+        </center>
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for product in products %}
         <div v-for="product in products" class="col">
             <div class="card">
                 <img class="card-img-top" src="{{ product.image.url }}" />
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ product.name }}</h5>
+                    <h5 class="card-title fw-bold">{{ product.name }} - <br>
+                    {{ product.code }} </h5>
                     <p class="card-text">{{ product.description }} <br>
                     ${{ product.price }} <br>
                     En Stock: {{ product.amount }} </p>
-                    {% if product.url %}
-                    <a href="{{ product.url }}" class="btn btn-primary">
-                        MovieLink
-                    </a>
-                    {% endif %}
                 </div>
             </div>
         </div>
