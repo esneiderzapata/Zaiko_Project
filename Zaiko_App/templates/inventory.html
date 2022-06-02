@@ -12,7 +12,7 @@
         <label for="searchProduct" class="form-label">
             Search for Product:
         </label>
-        <input type="text" class="form-control" name="searchProduct" />
+        <input type="text" class="form-control" name="searchProduct" /> 
       </div>
       <p>Searching for {{ searchTerm }}</p>
       <button type="submit" class="btn btn-primary">Search</button>
@@ -30,7 +30,11 @@
         <a href='/sell' class="btn btn-primary">
         Vender
         </a>
-        </center>
+
+        <a href='/stats' class="btn btn-primary">
+        Estadisticas
+        </a>
+        </center> <br> <br>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for product in products %}

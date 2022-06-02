@@ -26,7 +26,9 @@ urlpatterns = [
     path('urzaiko',zaikoViews.inventory, name='inventory'),
     path('delete',zaikoViews.delete),
     path('sell',zaikoViews.sell),
-    path('create',zaikoViews.create_product)
+    path('create',zaikoViews.create_product),
+    path('stats',zaikoViews.stats),
+    path('end',zaikoViews.end),
 ]
 
 if settings.DEBUG:

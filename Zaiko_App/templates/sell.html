@@ -5,25 +5,34 @@
 </head>
 
 <div class="container">
-	<!--<h1>Welcome to Home Page, {{ name }}</h1>
-	<h2>This is the full Home Page</h2>-->
-	<form action="">
-      <div class="mb-3">
-        <label for="searchProduct" class="form-label">
-            Codigo:
-        </label>
-        <input type="text" class="form-control" name="searchProduct" />
+    
+    <p>Ingresa el codigo del producto y la cantidad que vendiste separados por espacios: EJEM 2<br>
+    Si es mas de un producto ingresalo de igual manera, pero agregando los demas productos que vendiste: EJEM 2 EXA 1 TUTU 12</p>
 
-        <label for="cantidad" class="form-label">
-            Cantidad:
+	<form action="" >
+      <div class="mb-3">
+        <label for="CC" class="form-label">
+            Codigo y Cantidad:
         </label>
-        <input type="text" class="form-control" name="cantidad" />
+        <input type="text" class="form-control" name="CC" />
       </div>
+
       <button type="submit" class="btn btn-primary">Vender</button>
-    </form>
-    <a href='/urzaiko' class="btn btn-primary">
+      <a href='/urzaiko' class="btn btn-primary">
         Volver
-        </a>
-    <br />
-    <br />
+      </a> <br> <br>
+    </form>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for product in productsA %}
+        <div v-for="product in productsA" class="col">
+            <div class="card">
+                <img class="card-img-top" src="{{ product.image.url }}" />
+                <div class="card-body">
+                    <h5 class="card-title fw-bold"> {{ product.code }} </h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
